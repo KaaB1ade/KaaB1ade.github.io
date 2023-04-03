@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2023/03/31/NJU-OS-m1/"/>
+    <url>/2023/03/31/NJU-OS-m1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="这是一个Kaa的反正没人看系列之操作系统实验-love-from-NJU"><a href="#这是一个Kaa的反正没人看系列之操作系统实验-love-from-NJU" class="headerlink" title="这是一个Kaa的反正没人看系列之操作系统实验(love from NJU)"></a>这是一个Kaa的反正没人看系列之操作系统实验(love from NJU)</h1><h2 id="如果想加入受苦-NJU-os实验"><a href="#如果想加入受苦-NJU-os实验" class="headerlink" title="如果想加入受苦 NJU os实验"></a>如果想加入受苦 <a href="http://jyywiki.cn/">NJU os实验</a></h2><h3 id="minilab1的自我实现"><a href="#minilab1的自我实现" class="headerlink" title="minilab1的自我实现"></a>minilab1的自我实现</h3><ol><li>首先我们来看linux下的GNU make<br>   先在工作目录下建立Makefile文件，文件内容示例如下(具体关于makefile的内容移步其他人的blog鸭~)   <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs vim">objects = main.<span class="hljs-keyword">o</span> kbd.<span class="hljs-keyword">o</span> <span class="hljs-keyword">command</span>.<span class="hljs-keyword">o</span> <span class="hljs-keyword">display</span>.<span class="hljs-keyword">o</span> \<br>          <span class="hljs-keyword">insert</span>.<span class="hljs-keyword">o</span> <span class="hljs-built_in">search</span>.<span class="hljs-keyword">o</span> <span class="hljs-keyword">files</span>.<span class="hljs-keyword">o</span> utils.<span class="hljs-keyword">o</span><br> <br><span class="hljs-keyword">edit</span> : $(objects)<br>        <span class="hljs-keyword">cc</span> -<span class="hljs-keyword">o</span> <span class="hljs-keyword">edit</span> $(objects)<br> <br>main.<span class="hljs-keyword">o</span> : defs.h<br>kbd.<span class="hljs-keyword">o</span> : defs.h <span class="hljs-keyword">command</span>.h<br><span class="hljs-keyword">command</span>.<span class="hljs-keyword">o</span> : defs.h <span class="hljs-keyword">command</span>.h<br><span class="hljs-keyword">display</span>.<span class="hljs-keyword">o</span> : defs.h <span class="hljs-keyword">buffer</span>.h<br><span class="hljs-keyword">insert</span>.<span class="hljs-keyword">o</span> : defs.h <span class="hljs-keyword">buffer</span>.h<br><span class="hljs-built_in">search</span>.<span class="hljs-keyword">o</span> : defs.h <span class="hljs-keyword">buffer</span>.h<br><span class="hljs-keyword">files</span>.<span class="hljs-keyword">o</span> : defs.h <span class="hljs-keyword">buffer</span>.h <span class="hljs-keyword">command</span>.h<br>utils.<span class="hljs-keyword">o</span> : defs.h<br> <br>.PHONY : clean<br>clean :<br>        rm <span class="hljs-keyword">edit</span> $(objects)<br></code></pre></td></tr></table></figure>在目录下执行make命令 将自动找到Makefile文件，并按文件规则编译运行工程  </li><li></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2023/03/29/%E5%88%9D%E8%A1%B7/"/>
+    <url>/2023/03/29/%E5%88%9D%E8%A1%B7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="这是一个Kaa的反正没人看系列"><a href="#这是一个Kaa的反正没人看系列" class="headerlink" title="这是一个Kaa的反正没人看系列"></a>这是一个Kaa的反正没人看系列</h1><h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>彼时我曾言：“我将永不忘怀。”但我深知这一切都将变得无足轻重，生命和生命带来的所有，注定是荒废，易逝，泯如常人的。所有复杂的情绪、心中的秘密战场，都会在岁月的年轮面前缓慢受磨，变成温和又宽容的白色。但是倘若你呼唤我的名字，这样的我，也愿意成为你的庇护所。<br>上面的这段文字来自于结冰水乐队的一首歌下的留言。诚然，大多数时间里，我们都是麻木的，机械地坐着日复一日的事，纵然表现得满足安然甚至欢乐愉悦，但当一天结束的时候，我们必须又要承认，今天和过去的大多数日子并无本质的不同。心中所有经历的复杂难以言表的情绪甚至兵荒马乱都不会为人所知，多年以后甚至当事人本人都难记忆起一二。我们中的大多数平凡人都在无聊中挣扎，做着一些认为可以改变无聊的宿命的事。<br>我也知道开辟一个小小的独立的空间记录一些东西，除了多年后徒增伤感恐怕并没有其他多余的功能，但是我想有些东西如果不及时地记录下来，就随它散去恐怕也不是一种好事，就如一场场想记起却无能为力的梦，就如一大坨岁月被粗暴地揉合在一起，其间的种种到最后已经无人能辨。如果那些种种没有被记录下来，而它们本身又被当事人忘却，对于那些种种和当事人来说未免有些残忍。所以为了不让人生的一部分时光被永久地囚禁起来暗无天日甚至死得不明不白，才有了这个没人看系列，聊以慰藉，也给一天的最后晚间时光找点乐子。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
