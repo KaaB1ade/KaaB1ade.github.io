@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这是一个Kaa的反正没人看系列之Ash-Cloud合约部分介绍说了这么多，我们开始写合约，那么合约得做到什么呢？首先合约应包含ash-cloud成员像外部人员售卖Item，扩展cloud这一场景，其次应包含外部成员付款后成为ash-cloud中的一员。那么接下来让我们实现这两种场景。合约总体来看继承了Verify和ReentrancyGuard两大合约。其中Verify用于实现零知识证明，而Ree">
+    <meta name="description" content="这是一个Kaa的反正没人看系列之Ash-Cloud合约部分介绍说了这么多，我们开始写合约，那么合约得做到什么呢？首先合约应包含ash-cloud成员向外部人员售卖Item，扩展cloud这一场景，其次应包含外部成员付款后成为ash-cloud中的一员。那么接下来让我们实现这两种场景。合约总体来看继承了Verify和ReentrancyGuard两大合约。其中Verify用于实现零知识证明，而Ree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/2023/04/03/Ash-Cloud%E5%90%88%E7%BA%A6%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这是一个Kaa的反正没人看系列之Ash-Cloud合约部分介绍说了这么多，我们开始写合约，那么合约得做到什么呢？首先合约应包含ash-cloud成员像外部人员售卖Item，扩展cloud这一场景，其次应包含外部成员付款后成为ash-cloud中的一员。那么接下来让我们实现这两种场景。合约总体来看继承了Verify和ReentrancyGuard两大合约。其中Verify用于实现零知识证明，而Ree">
+<meta property="og:description" content="这是一个Kaa的反正没人看系列之Ash-Cloud合约部分介绍说了这么多，我们开始写合约，那么合约得做到什么呢？首先合约应包含ash-cloud成员向外部人员售卖Item，扩展cloud这一场景，其次应包含外部成员付款后成为ash-cloud中的一员。那么接下来让我们实现这两种场景。合约总体来看继承了Verify和ReentrancyGuard两大合约。其中Verify用于实现零知识证明，而Ree">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-03T15:13:45.158Z">
-<meta property="article:modified_time" content="2023-04-03T15:54:50.106Z">
+<meta property="article:modified_time" content="2023-04-05T14:08:47.911Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -273,7 +273,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这是一个Kaa的反正没人看系列之Ash-Cloud"><a href="#这是一个Kaa的反正没人看系列之Ash-Cloud" class="headerlink" title="这是一个Kaa的反正没人看系列之Ash-Cloud"></a>这是一个Kaa的反正没人看系列之Ash-Cloud</h1><h2 id="合约部分介绍"><a href="#合约部分介绍" class="headerlink" title="合约部分介绍"></a>合约部分介绍</h2><p>说了这么多，我们开始写合约，那么合约得做到什么呢？首先合约应包含ash-cloud成员像外部人员售卖Item，扩展cloud这一场景，其次应包含外部成员付款后成为ash-cloud中的一员。那么接下来让我们实现这两种场景。<br>合约总体来看继承了Verify和ReentrancyGuard两大合约。其中Verify用于实现零知识证明，而ReentrancyGuard出于安全考虑避免重入攻击。</p>
+                <h1 id="这是一个Kaa的反正没人看系列之Ash-Cloud"><a href="#这是一个Kaa的反正没人看系列之Ash-Cloud" class="headerlink" title="这是一个Kaa的反正没人看系列之Ash-Cloud"></a>这是一个Kaa的反正没人看系列之Ash-Cloud</h1><h2 id="合约部分介绍"><a href="#合约部分介绍" class="headerlink" title="合约部分介绍"></a>合约部分介绍</h2><p>说了这么多，我们开始写合约，那么合约得做到什么呢？首先合约应包含ash-cloud成员向外部人员售卖Item，扩展cloud这一场景，其次应包含外部成员付款后成为ash-cloud中的一员。那么接下来让我们实现这两种场景。<br>合约总体来看继承了Verify和ReentrancyGuard两大合约。其中Verify用于实现零知识证明，而ReentrancyGuard出于安全考虑避免重入攻击。</p>
 <hr>
 <p>此处是导入的文件  </p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">import</span> <span class="hljs-string">&quot;<span class="hljs-variable">@openzeppelin</span>/contracts/security/ReentrancyGuard.sol&quot;</span>;<br><span class="hljs-attribute">import</span> <span class="hljs-string">&quot;<span class="hljs-variable">@openzeppelin</span>/contracts/token/ERC20/utils/SafeERC20.sol&quot;</span>;<br><span class="hljs-attribute">import</span> <span class="hljs-string">&quot;<span class="hljs-variable">@openzeppelin</span>/contracts/utils/Address.sol&quot;</span>;<br><span class="hljs-attribute">import</span> <span class="hljs-string">&quot;./Verifier.sol&quot;</span>;<br></code></pre></td></tr></table></figure>
@@ -352,6 +352,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/04/04/%E7%9E%8E%E5%86%99%E5%90%88%E9%9B%86/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
